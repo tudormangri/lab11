@@ -1,0 +1,78 @@
+
+//MANGRI TUDOR 321AC//
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+template <typename T> //
+
+class Stack {
+
+public:
+
+	int size() const;
+	bool isEmpty() const;
+
+	const T& top() const
+        {
+            if (isEmpty()) throw "Stiva goala\n";
+            return v.back();
+        }
+
+	void push(const T& ob);
+	void pop();
+	vector <T> v;
+};
+
+    template <typename T> bool Stack<T>::isEmpty() const
+
+    {
+        return (v.empty());
+    }
+
+
+    template<typename T> void Stack<T>::push(const T& ob)
+
+{ v.push_back(ob); }
+
+
+    template<typename T> void Stack<T>::pop()
+{if (isEmpty()) throw "Stiva goala\n";
+v.pop_back();}
+
+
+int main() {
+
+	Stack <int> st;
+
+    st.push(1);
+    st.push(3);
+    st.push(5);
+    st.push(7);
+
+    while (!st.isEmpty())
+    {
+        cout << st.top() << "\n";
+        st.pop();
+    }
+
+    Stack <char> st2;
+
+
+    st2.push('a');
+    st2.push('e');
+    st2.push('i');
+    st2.push('o');
+    st2.push('u');
+    st2.push(' ');
+
+
+    while (!st2.isEmpty())
+    {
+        cout << st2.top() << "\n";
+        st2.pop();
+    }
+
+	return 0;
+}
